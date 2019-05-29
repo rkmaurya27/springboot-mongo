@@ -4,11 +4,13 @@ import com.rkm.first.model.Company;
 import com.rkm.first.service.CompanyService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Description;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
+@Description("A controller for handling requests for hello messages")
 @RequestMapping(path = "/company")
 public class CompanyController {
     private Logger logging=Logger.getLogger(CompanyController.class);
@@ -18,10 +20,14 @@ public class CompanyController {
 
     @GetMapping
     @RequestMapping(path="/{id}")
-    public Company getData(@PathVariable("id") int id){
+    public Company getData(@PathVariable("id") Integer id){
         logging.info("Getting details based on id: "+id);
         return companyService.getCompanyDetails(id);
     }
+
+  /*  @GetMapping
+    @RequestParam()
+    @RequestMapping(path = "/")*/
 
     @PostMapping
     public String addData(@Valid @RequestBody Company company){
@@ -29,7 +35,6 @@ public class CompanyController {
             companyService.addShopDetails(company);
             logging.info("Adding company details");
         }catch(Exception e){
-            e.printStackTrace();
             return "Error Please check";
         }
         return "Record added";

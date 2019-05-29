@@ -15,7 +15,7 @@ public class Company {
     @Id
     @NotNull
     //@GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Object _id;
+    private Integer _id;
     @NotNull
     @NotEmpty(message = "Name should not be empty")
     @Length(min = 4)
@@ -30,7 +30,7 @@ public class Company {
         return _id;
     }
 
-    public void set_id(Object _id) {
+    public void set_id(Integer _id) {
         this._id = _id;
     }
 
