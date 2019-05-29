@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class BasicConfiguration extends WebSecurityConfigurerAdapter {
-
+//https://www.baeldung.com/spring-boot-security-autoconfiguration
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
