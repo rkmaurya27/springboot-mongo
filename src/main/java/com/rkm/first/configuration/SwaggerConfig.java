@@ -20,6 +20,7 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.rkm.first.controller"))
                 .paths(PathSelectors.regex("/.*"))
+                 //.paths(PathSelectors.any())
                 .build().apiInfo(apiEndPointsInfo());
     }
     private ApiInfo apiEndPointsInfo() {
